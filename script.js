@@ -50,81 +50,145 @@ function buildSprockets() {
 buildSprockets();
 window.addEventListener('resize', buildSprockets);
 
-/* ── FILMSTRIP CAROUSEL (Home page only) ── */
+/* ── FILMSTRIP CAROUSEL (Home page only) ──
+   Built as a genuine infinite loop: the real photo set is cloned once
+   before itself and once after itself in the DOM, so the strip reads as
+   [clone][real][clone] back to back. currentFrame is a "virtual" index
+   into that 3x-length strip, starting at REAL_FRAME_COUNT (the first
+   real photo). Scrolling forward past the last real photo just slides
+   into the trailing clone -- which looks pixel-identical to the real
+   set -- and scrolling backward past the first does the same into the
+   leading clone. Right after each move's transition finishes, if the
+   virtual index has wandered into either clone block, it's silently
+   rewound by one set-length with the transition switched off, snapping
+   back into the real block without any visible jump. That's what makes
+   the loop feel endless while the index itself never grows unbounded. */
 const FRAMES_PER_VIEW_DESKTOP = 3;
 const FRAMES_PER_VIEW_MOBILE  = 2;
 let currentFrame = 0;
+let REAL_FRAME_COUNT = 0;
 
 function getFramesPerView() {
   return window.innerWidth <= 900 ? FRAMES_PER_VIEW_MOBILE : FRAMES_PER_VIEW_DESKTOP;
 }
 
+// One dot per real photo -- with the loop, every photo is a valid
+// "first frame shown" position once per lap around the strip.
 function getTotalSlides() {
-  const frames = document.querySelectorAll('.film-frame');
-  return Math.max(0, frames.length - getFramesPerView() + 1);
+  return REAL_FRAME_COUNT;
+}
+
+function initInfiniteFrames() {
+  const track = document.getElementById('framesTrack');
+  if (!track) return;
+  const originals = Array.from(track.querySelectorAll('.film-frame'));
+  REAL_FRAME_COUNT = originals.length;
+  if (REAL_FRAME_COUNT === 0) return;
+
+  const before = document.createDocumentFragment();
+  const after = document.createDocumentFragment();
+  originals.forEach(f => before.appendChild(f.cloneNode(true)));
+  originals.forEach(f => after.appendChild(f.cloneNode(true)));
+  track.insertBefore(before, track.firstChild);
+  track.appendChild(after);
+
+  currentFrame = REAL_FRAME_COUNT; // start on the first real photo, middle block
+}
+
+// Which real photo (0-based) the strip is currently showing as its
+// first visible frame, regardless of which of the 3 blocks currentFrame
+// actually points into.
+function realIndex() {
+  return ((currentFrame - REAL_FRAME_COUNT) % REAL_FRAME_COUNT + REAL_FRAME_COUNT) % REAL_FRAME_COUNT;
+}
+
+function frameGeometry() {
+  const frame = document.querySelector('.film-frame');
+  const frameWidth = frame ? frame.getBoundingClientRect().width : 0;
+  return { frameWidth, gap: 2 };
+}
+
+function offsetForFrame(frameIndex) {
+  const { frameWidth, gap } = frameGeometry();
+  return -(frameIndex * (frameWidth + gap));
 }
 
 function updateCarousel() {
   const track = document.getElementById('framesTrack');
-  const frames = document.querySelectorAll('.film-frame');
-  if (!track || frames.length === 0) return;
+  if (!track || REAL_FRAME_COUNT === 0) return;
+
+  track.style.transform = `translateX(${offsetForFrame(currentFrame)}px)`;
 
   const fpv = getFramesPerView();
-  const totalSlides = getTotalSlides();
-  currentFrame = Math.max(0, Math.min(currentFrame, totalSlides - 1));
-
-  const frameWidth = frames[0].getBoundingClientRect().width;
-  const gap = 2;
-  track.style.transform = `translateX(-${currentFrame * (frameWidth + gap)}px)`;
+  const idx = realIndex();
 
   const dots = document.getElementById('counterDots');
   const text = document.getElementById('counterText');
   if (dots) {
     dots.innerHTML = '';
-    for (let i = 0; i < totalSlides; i++) {
+    for (let i = 0; i < REAL_FRAME_COUNT; i++) {
       const dot = document.createElement('div');
-      dot.className = 'counter-dot' + (i === currentFrame ? ' active' : '');
-      dot.onclick = (function(idx) { return function() { currentFrame = idx; updateCarousel(); }; })(i);
+      dot.className = 'counter-dot' + (i === idx ? ' active' : '');
+      dot.onclick = (function(i) { return function() { goToFrame(i); }; })(i);
       dots.appendChild(dot);
     }
   }
   if (text) {
-    const start = currentFrame + 1;
-    const end = Math.min(currentFrame + fpv, frames.length);
-    text.textContent = `Frame ${start}–${end} of ${frames.length}`;
+    const start = idx + 1;
+    const end = Math.min(idx + fpv, REAL_FRAME_COUNT);
+    text.textContent = `Frame ${start}–${end} of ${REAL_FRAME_COUNT}`;
   }
+}
+
+function goToFrame(realIdx) {
+  currentFrame = REAL_FRAME_COUNT + realIdx;
+  updateCarousel();
+}
+
+// Runs after every animated move. If we've drifted into a clone block,
+// rewind by one full set-length with the transition off -- invisible,
+// since the clone renders identically to the real block underneath it.
+function normalizeAfterTransition() {
+  const track = document.getElementById('framesTrack');
+  if (!track) return;
+  if (currentFrame >= REAL_FRAME_COUNT * 2) {
+    currentFrame -= REAL_FRAME_COUNT;
+  } else if (currentFrame < REAL_FRAME_COUNT) {
+    currentFrame += REAL_FRAME_COUNT;
+  } else {
+    return;
+  }
+  track.style.transition = 'none';
+  track.style.transform = `translateX(${offsetForFrame(currentFrame)}px)`;
+  void track.offsetHeight; // force reflow so transition:none takes effect before we restore it
+  track.style.transition = '';
 }
 
 function stripNext() {
-  if (currentFrame < getTotalSlides() - 1) {
-    currentFrame++;
-    updateCarousel();
-  }
+  currentFrame++;
+  updateCarousel();
 }
 
 function stripPrev() {
-  if (currentFrame > 0) {
-    currentFrame--;
-    updateCarousel();
-  }
+  currentFrame--;
+  updateCarousel();
 }
 
 let autoPlay = setInterval(function() {
-  if (currentFrame < getTotalSlides() - 1) {
-    currentFrame++;
-  } else {
-    currentFrame = 0;
-  }
+  currentFrame++;
   updateCarousel();
 }, 4000);
 
 document.querySelector('.filmstrip-section')?.addEventListener('mouseenter', () => clearInterval(autoPlay));
 document.querySelector('.filmstrip-section')?.addEventListener('mouseleave', () => {
   autoPlay = setInterval(function() {
-    if (currentFrame < getTotalSlides() - 1) { currentFrame++; } else { currentFrame = 0; }
+    currentFrame++;
     updateCarousel();
   }, 4000);
 });
+
+initInfiniteFrames();
+document.getElementById('framesTrack')?.addEventListener('transitionend', normalizeAfterTransition);
 
 window.addEventListener('resize', updateCarousel);
 setTimeout(updateCarousel, 100);
@@ -138,7 +202,9 @@ document.addEventListener('keydown', function(e) {
    Lets a finger drag the strip on phones/tablets: the track follows the
    finger in real time, then either snaps to the next/previous frame or
    springs back, depending on how far the swipe travelled. A vertical
-   swipe is left alone so the page can still scroll normally. */
+   swipe is left alone so the page can still scroll normally. Because
+   the strip loops infinitely, there's no need to clamp the drag at
+   either end -- it just keeps sliding into the cloned block beyond it. */
 (function() {
   const viewport = document.querySelector('.frames-viewport');
   const track = document.getElementById('framesTrack');
@@ -155,17 +221,9 @@ document.addEventListener('keydown', function(e) {
   function restartAutoplay() {
     clearInterval(autoPlay);
     autoPlay = setInterval(function() {
-      if (currentFrame < getTotalSlides() - 1) { currentFrame++; } else { currentFrame = 0; }
+      currentFrame++;
       updateCarousel();
     }, 4000);
-  }
-
-  function currentOffset() {
-    const frame = document.querySelector('.film-frame');
-    if (!frame) return 0;
-    const frameWidth = frame.getBoundingClientRect().width;
-    const gap = 2;
-    return -(currentFrame * (frameWidth + gap));
   }
 
   function onStart(x, y) {
@@ -190,7 +248,14 @@ document.addEventListener('keydown', function(e) {
     if (!isHorizontal) return false;
 
     if (evt && evt.cancelable) evt.preventDefault();
-    track.style.transform = `translateX(${currentOffset() + deltaX}px)`;
+
+    // Generous safety clamp so an unusually long single drag can never
+    // outrun the one full set of cloned frames padding each side.
+    const { frameWidth, gap } = frameGeometry();
+    const maxDrag = Math.max(0, REAL_FRAME_COUNT - 1) * (frameWidth + gap);
+    const clampedDeltaX = Math.max(-maxDrag, Math.min(maxDrag, deltaX));
+
+    track.style.transform = `translateX(${offsetForFrame(currentFrame) + clampedDeltaX}px)`;
     return true;
   }
 
