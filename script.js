@@ -201,7 +201,7 @@ document.addEventListener('keydown', function(e) {
 /* ── FILMSTRIP CAROUSEL — TOUCH SWIPE (Home page only) ──
    Lets a finger drag the strip on phones/tablets: the track follows the
    finger in real time, then either snaps to the next/previous frame or
-   springs back, depending on how far the swipe travelled. A vertical
+   springs back, depending on how far the swipe traveled. A vertical
    swipe is left alone so the page can still scroll normally. Because
    the strip loops infinitely, there's no need to clamp the drag at
    either end -- it just keeps sliding into the cloned block beyond it. */
