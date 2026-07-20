@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — SIAFF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.svg" alt="SIAFF logo" loading="lazy">
+  </a>
+    <span class="nav-tagline">Born in a classroom. Built by learners.</span>
+  </div>
+
+  <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+  </button>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" id="nav-home">Home</a></li>
+    <li><a href="about.html" id="nav-about">About</a></li>
+    <li><a href="submit.html" id="nav-submit">Submit a Film</a></li>
+    <li><a href="faq.html" id="nav-faq" class="active">FAQ</a></li>
+  </ul>
+</nav>
+
+
+  <div class="about-hero">
+    <div class="about-hero-inner">
+      <span class="eyebrow">Frequently asked</span>
+      <h1 class="about-hero-h1">Questions, answered <em>honestly.</em></h1>
+      <p class="about-hero-sub">Everything filmmakers actually ask us — about eligibility, fees, feedback, and how SIAFF works. Can't find it here? Ask our assistant below, or write to us directly.</p>
+    </div>
+  </div>
+
+  <div class="section section-narrow faq-body">
+
+    <div class="faq-group">
+      <h3 class="faq-group-title">Eligibility &amp; submitting</h3>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">Who can submit a film to SIAFF?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><p>Any director aged 65 or older at the time of submission — that's our only hard eligibility rule. No prior festival experience, no professional credentials, no minimum budget required. In the case of co-direction, the lead director must meet this requirement.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">What does "senior-centric" mean — does my film have to be about aging?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><p>Not strictly. We give priority to films that highlight older adult perspectives, explore intergenerational relationships, or challenge stereotypes of aging — but this isn't a disqualifying requirement. A film whose only connection to senior experience is the director's age is unlikely to be selected, though. Not sure if yours qualifies? Submit anyway and explain the connection in your director's statement.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">Does my film need to be a world premiere?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><p>No. Films that have already screened elsewhere — including at other festivals — are welcome at SIAFF.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">How long can my film be, and what genres and languages are accepted?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><p>Maximum runtime is 30 minutes including credits. Any genre — documentary, fiction, experimental, animation, or hybrid. Any language, as long as non-English films include English subtitles.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">How do I actually submit my film?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><p>Through FilmFreeWay, the industry-standard festival submission platform. Create a free filmmaker account, complete your film's profile, and submit to SIAFF — the process takes about 20 minutes. See the Submit page for this year's deadlines.</p></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="faq-group">
+      <h3 class="faq-group-title">Fees, feedback &amp; recognition</h3>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">Is there really no submission fee?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><p>Really. SIAFF is self-funded with no institutional sponsors or industry ties, and submitting is free — always has been, always will be. If our work resonates with you, we gratefully welcome a donation of any amount to help cover festival costs, but it is never required.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">Will I get feedback on my film?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><p>Selected films and category winners receive written jury feedback, and every filmmaker who submits is notified of the outcome. We believe the act of making a film deserves acknowledgement — not silence. As we grow, so will our feedback capacity for every entrant.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">What do selected films and winners receive?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><p>Selected films receive a digital laurel to display freely on posters, websites, and social media. Category winners receive their own distinct laurel recognising the award.</p></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="faq-group">
+      <h3 class="faq-group-title">About SIAFF</h3>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">Is SIAFF affiliated with a bigger festival, sponsor, or industry body?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><p>No — by choice. SIAFF has no institutional sponsors and no ties to the film industry. We're run by the AGOAC Filmmaking Group, a community of senior filmmakers in Markham, Ontario. We do welcome collaboration with organisations that share our values.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">Where is SIAFF based, and can filmmakers from anywhere submit?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><p>SIAFF was founded in Markham, Ontario, Canada, and has run there since 2024. Starting in 2027, we're opening submissions to senior filmmakers worldwide.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-question-text">How did SIAFF get started?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><p>In 2018, filmmaker Thomas Yee founded the AGOAC Filmmaking Group in Markham to teach older adults the complete craft of filmmaking. The weekly classroom ran for years before the group decided, in 2024, that the journey deserved a public moment — and SIAFF was born. Read the full story on our About page.</p></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AI chat widget -->
+  <div class="chat-section">
+    <div class="chat-section-inner">
+      <div class="chat-intro">
+        <span class="eyebrow" style="color:var(--warm2)">Still have questions?</span>
+        <h2 class="chat-intro-h2">Ask SIAFF <em>directly.</em></h2>
+        <p class="chat-intro-body">Try our simulated assistant below — it's pre-loaded with answers to the questions filmmakers ask us most. This is a prototype, not a live AI, so if it doesn't know an answer, the contact form beneath it reaches a real person.</p>
+      </div>
+      <div class="chat-widget">
+        <div class="chat-header">
+          <div class="chat-header-dot"></div>
+          <span class="chat-header-title">SIAFF Assistant</span>
+          <span class="chat-header-badge">Simulated · Prototype</span>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="chat-msg bot"><div class="chat-msg-bubble">Hi! I can answer common questions about submitting to SIAFF — eligibility, fees, deadlines, and more. Try a question below, or type your own.</div></div>
+        </div>
+        <div class="chat-suggestions" id="chatSuggestions">
+          <button class="chip" onclick="askChat('Who can submit a film to SIAFF?')">Who can submit?</button>
+          <button class="chip" onclick="askChat('Is it free to submit?')">Is it free?</button>
+          <button class="chip" onclick="askChat('What does senior-centric mean?')">What is senior-centric?</button>
+          <button class="chip" onclick="askChat('How do I submit my film?')">How do I submit?</button>
+          <button class="chip" onclick="askChat('Who founded SIAFF?')">Who founded SIAFF?</button>
+        </div>
+        <div class="chat-input-row">
+          <input type="text" class="chat-input" id="chatInput" placeholder="Type your question…" onkeydown="if(event.key==='Enter'){sendChat();}">
+          <button class="chat-send" onclick="sendChat()">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact form placeholder -->
+  <div class="contact-section">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <span class="eyebrow">Didn't find your answer?</span>
+        <h2 class="contact-h2">Write to us <em>directly.</em></h2>
+        <p class="contact-body">This form is a placeholder for the prototype — in the live site, messages will reach <strong>admin@siaff.org</strong> directly. We read every message ourselves; there's no support queue and no auto-responder, just the same small community that runs the festival.</p>
+      </div>
+      <form class="contact-form" id="contactForm" onsubmit="return handleContactSubmit(event)">
+        <div class="form-row">
+          <label class="form-label" for="cf-name">Name</label>
+          <input class="form-input" type="text" id="cf-name" placeholder="Your name" required>
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="cf-email">Email</label>
+          <input class="form-input" type="email" id="cf-email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="cf-topic">Topic</label>
+          <select class="form-input" id="cf-topic">
+            <option>Submission question</option>
+            <option>Eligibility question</option>
+            <option>Press / media</option>
+            <option>Collaboration / partnership</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="cf-message">Message</label>
+          <textarea class="form-input form-textarea" id="cf-message" rows="5" placeholder="Tell us what's on your mind…" required></textarea>
+        </div>
+        <button class="form-submit" type="submit">Send message <span class="hero-cta-arrow">→</span></button>
+        <p class="form-note" id="formNote">Placeholder form — nothing is sent yet in this prototype.</p>
+      </form>
+    </div>
+  </div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="images/logo.svg" alt="SIAFF logo" loading="lazy">
+      <p class="footer-tagline">The festival that started in a classroom. The one that never left.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About SIAFF</a>
+        <a href="submit.html">Submit a Film</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Community</div>
+      <address class="footer-address">
+        Angus Glen Older Adult Club<br>
+        Filmmaking Group<br>
+        Markham, Ontario, Canada<br>
+        <br>
+        admin@siaff.org
+      </address>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Seniors In Action Film Festival · AGOAC Filmmaking Group</span>
+    <span class="footer-prototype">PROTOTYPE STRUCTURE — for team review</span>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

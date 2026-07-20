@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit a Film — SIAFF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.svg" alt="SIAFF logo" loading="lazy">
+  </a>
+    <span class="nav-tagline">Born in a classroom. Built by learners.</span>
+  </div>
+
+  <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+  </button>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" id="nav-home">Home</a></li>
+    <li><a href="about.html" id="nav-about">About</a></li>
+    <li><a href="submit.html" id="nav-submit" class="active">Submit a Film</a></li>
+    <li><a href="faq.html" id="nav-faq">FAQ</a></li>
+  </ul>
+</nav>
+
+
+  <div class="submit-hero">
+    <div class="submit-hero-inner">
+      <span class="eyebrow" style="color:rgba(242,235,217,0.6)">Submit a film</span>
+      <h1 class="submit-hero-h1">Your film belongs here.</h1>
+      <p class="submit-hero-sub">If you are 65 or older and you have made a short film — submit it. No fee. No prior festival experience required. Just your work.</p>
+    </div>
+  </div>
+
+  <!-- Honest notices — front and centre -->
+  <div class="honest-notices">
+    <div class="honest-inner">
+      <div class="honest-card">
+        <div class="honest-card-eye">Submission fee</div>
+        <div class="honest-card-title">Free to submit.<br>No exceptions.</div>
+        <div class="honest-card-body">SIAFF is self-funded with no institutional sponsors or industry ties. Submitting costs nothing — and that will not change. <em>Cost should never stand between a senior filmmaker and an audience.</em> If our work resonates with you, a donation of any amount is genuinely appreciated and goes directly to keeping the festival running.</div>
+      </div>
+      <div class="honest-card">
+        <div class="honest-card-eye">Filmmaker feedback</div>
+        <div class="honest-card-title">Honest about what we offer.</div>
+        <div class="honest-card-body">We are a learning community and we take filmmaker feedback seriously. <em>Selected films and category winners receive written jury feedback.</em> Every submitter receives notification of the outcome. We will not leave you in silence — and as we grow, so will our feedback capacity.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="submit-body">
+    <div class="submit-main">
+
+      <h2>Eligibility</h2>
+
+      <div class="criteria-list">
+        <div class="criteria-item">
+          <div class="criteria-marker">01</div>
+          <div class="criteria-content">
+            <div class="criteria-title">Director age — 65 or older</div>
+            <div class="criteria-body">The film's director must be aged 65 or older at the time of submission. In the case of co-direction, the lead director must meet this requirement. This is our only hard eligibility rule.</div>
+          </div>
+        </div>
+        <div class="criteria-item">
+          <div class="criteria-marker">02</div>
+          <div class="criteria-content">
+            <div class="criteria-title">Senior-centric subject matter — strongly preferred</div>
+            <div class="criteria-body">Films that engage meaningfully with senior experience are given priority in our selection process. This is not a disqualifying requirement — but it is what SIAFF programmes. A film whose only connection to senior experience is the director's age is unlikely to be selected.</div>
+          </div>
+        </div>
+        <div class="criteria-item">
+          <div class="criteria-marker">03</div>
+          <div class="criteria-content">
+            <div class="criteria-title">Short film format</div>
+            <div class="criteria-body">Short films only. Maximum runtime 30 minutes including credits. Any genre — documentary, fiction, experimental, animation, or hybrid. Any language; non-English films must include English subtitles. <strong>No World Premiere requirement</strong> — films that have screened elsewhere are welcome.</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>What "senior-centric" means</h2>
+      <p>A film is senior-centric when it meaningfully engages with one or more of the following:</p>
+
+      <div class="sc-branches">
+        <div class="sc-branch">
+          <span class="sc-letter">A</span>
+          <span class="sc-text"><strong>Highlights older adult perspectives</strong> — the film sees the world through older eyes. The senior viewpoint or life experience is the lens, not just the subject.</span>
+        </div>
+        <div class="sc-branch">
+          <span class="sc-letter">B</span>
+          <span class="sc-text"><strong>Explores intergenerational relationships</strong> — what passes between generations: love, conflict, inheritance, care, legacy. Both sides of the relationship matter.</span>
+        </div>
+        <div class="sc-branch">
+          <span class="sc-letter">C</span>
+          <span class="sc-text"><strong>Challenges stereotypes of aging</strong> — the film pushes back against what society expects of older people. Comedy, satire, and the defiant belong here as much as the reflective.</span>
+        </div>
+      </div>
+
+      <div class="priority-note">
+        <p class="priority-note-text"><strong>Not sure if your film qualifies?</strong> Submit it anyway and include a brief note in your director's statement explaining how it engages with older adult experience. We would rather consider your work and decide than have you self-select out before we see it.</p>
+      </div>
+
+      <h2>What we look for</h2>
+      <p>SIAFF judges films on <strong>clarity of vision relative to resources and experience</strong> — not on production budget or technical polish. A first-time filmmaker with a smartphone and something specific to say belongs in our programme as much as a retired cinematographer with professional equipment.</p>
+      <p>We ask our jury: did this filmmaker achieve what they set out to achieve, given what they had? That is a different and more honest question than "is this technically accomplished?"</p>
+
+      <h2>How to submit</h2>
+      <p>SIAFF accepts submissions exclusively through <strong>FilmFreeWay</strong> — the industry-standard festival platform. Create a free filmmaker account, complete your film's profile, and submit to SIAFF. The process takes about 20 minutes.</p>
+      <p>All submissions are reviewed by the full jury. Selections are announced on the date noted in the sidebar. All filmmakers are notified of the outcome.</p>
+      <p><strong>Selected films receive a digital laurel</strong> to display proudly on your film's materials. Category winners receive their own distinct laurel recognising their award. These are yours to use freely — on your film poster, your website, your social media, anywhere you share your work.</p>
+
+    </div>
+
+    <div class="submit-sidebar">
+      <div class="submit-box">
+        <div class="submit-box-title">2027 Submissions</div>
+        <div class="submit-box-sub">Opening to global submissions</div>
+
+        <div class="deadline-list">
+          <div class="deadline-item">
+            <span class="deadline-name">Submissions open</span>
+            <span class="deadline-date">Jan 2027</span>
+          </div>
+          <div class="deadline-item">
+            <span class="deadline-name">Early deadline</span>
+            <span class="deadline-date">Mar 2027</span>
+          </div>
+          <div class="deadline-item">
+            <span class="deadline-name">Regular deadline</span>
+            <span class="deadline-date">Apr 2027</span>
+          </div>
+          <div class="deadline-item">
+            <span class="deadline-name">Final deadline</span>
+            <span class="deadline-date">May 2027</span>
+          </div>
+          <div class="deadline-item">
+            <span class="deadline-name">Selections announced</span>
+            <span class="deadline-date">Aug 2027</span>
+          </div>
+          <div class="deadline-item">
+            <span class="deadline-name">Festival screening</span>
+            <span class="deadline-date">Oct 2027</span>
+          </div>
+        </div>
+
+        <a class="submit-btn" href="https://filmfreeway.com" target="_blank">
+          Submit via FilmFreeWay →
+        </a>
+        <p class="submit-note">Free to submit · No account fee required</p>
+      </div>
+    </div>
+  </div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="images/logo.svg" alt="SIAFF logo" loading="lazy">
+      <p class="footer-tagline">The festival that started in a classroom. The one that never left.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About SIAFF</a>
+        <a href="submit.html">Submit a Film</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Community</div>
+      <address class="footer-address">
+        Angus Glen Older Adult Club<br>
+        Filmmaking Group<br>
+        Markham, Ontario, Canada<br>
+        <br>
+        admin@siaff.org
+      </address>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Seniors In Action Film Festival · AGOAC Filmmaking Group</span>
+    <span class="footer-prototype">PROTOTYPE STRUCTURE — for team review</span>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
