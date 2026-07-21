@@ -167,6 +167,7 @@ nav {
 /* ── SECTION UTILITY ────────────────────────────── */
 .section { padding: 72px 40px; max-width: 1100px; margin: 0 auto; }
 .section-narrow { max-width: 720px; }
+.faq-link-section { padding: 32px 40px; max-width: 1100px; margin: 0 auto; text-align: center; }
 .rule { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
 .rule-heavy { border-top: 3px solid var(--ink); margin: 0; }
 .eyebrow {
@@ -377,7 +378,7 @@ nav {
 
 /* ── HOME — FILMSTRIP CAROUSEL ──────────────────── */
 .filmstrip-section {
-  background: var(--ink);
+  background: #0a0a0a;
   padding: 56px 0;
   overflow: hidden;
 }
