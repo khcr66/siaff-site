@@ -912,11 +912,15 @@ nav {
 
 .submit-hero-h1 {
   font-family: var(--serif);
-  font-size: clamp(32px, 4vw, 56px);
+  font-size: clamp(36px, 5vw, 64px);
   font-weight: 900;
   color: var(--ink);
   line-height: 1.1;
   margin-bottom: 12px;
+}
+
+.submit-hero-h1 em {
+  font-style: italic;
 }
 
 .submit-hero-sub {
