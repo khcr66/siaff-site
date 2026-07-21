@@ -54,7 +54,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 3px solid var(--red); min-height: 74px;
+  border-bottom: 3px solid var(--red); min-height: 90px;
 }
 
 .nav-brand {
