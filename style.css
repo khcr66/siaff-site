@@ -10,6 +10,7 @@
   --ink3:     #8C7B68;
   --red:      #E87F00;
   --red2:     #C46A00;
+  --red3:     #8F4A00;
   --warm:     #8C7355;
   --warm2:    #F0A030;
   --rule:     #C4B89A;
@@ -159,7 +160,7 @@ nav {
   font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--red3);
   margin-bottom: 14px;
   display: block;
 }
@@ -628,7 +629,7 @@ nav {
   font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--red3);
   text-decoration: none;
   cursor: pointer;
   border-bottom: 1px solid var(--red);
