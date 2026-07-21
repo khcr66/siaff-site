@@ -11,6 +11,7 @@
   --red:      #E87F00;
   --red2:     #C46A00;
   --red3:     #8F4A00;
+  --footer-text: #9C9284;
   --warm:     #8C7355;
   --warm2:    #F0A030;
   --rule:     #C4B89A;
@@ -1171,7 +1172,7 @@ footer {
   font-family: var(--serif);
   font-size: 16px;
   font-style: italic;
-  color: #555;
+  color: var(--footer-text);
   line-height: 1.6;
 }
 
@@ -1188,7 +1189,7 @@ footer {
 
 .footer-links a {
   font-size: 16px;
-  color: #555;
+  color: var(--footer-text);
   text-decoration: none;
   transition: color 0.2s;
   cursor: pointer;
@@ -1198,7 +1199,7 @@ footer {
 
 .footer-address {
   font-size: 15px;
-  color: #555;
+  color: var(--footer-text);
   line-height: 1.8;
   font-style: normal;
 }
@@ -1216,7 +1217,7 @@ footer {
 .footer-copy {
   font-family: var(--mono);
   font-size: 13px;
-  color: #444;
+  color: var(--footer-text);
   letter-spacing: 0.06em;
 }
 
