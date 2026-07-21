@@ -898,6 +898,7 @@ nav {
   background: #1a1a18;
   padding: 28px 32px;
   min-width: 0;
+  scroll-margin-top: 90px;
 }
 
 .honest-card-eye {

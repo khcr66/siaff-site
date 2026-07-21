@@ -26,6 +26,15 @@ document.addEventListener('click', function(e) {
   if (nav && !nav.contains(e.target)) closeNav();
 });
 
+/* Re-run the anchor-jump after full load (including web fonts), since
+   Google Fonts load async and the browser's native fragment scroll can
+   land early, before headings reflow to their real size. */
+window.addEventListener('load', function() {
+  if (!location.hash) return;
+  const target = document.querySelector(location.hash);
+  if (target) target.scrollIntoView();
+});
+
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeNav();
 });
