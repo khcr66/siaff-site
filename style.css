@@ -405,8 +405,8 @@ nav {
 }
 
 .filmstrip-btn {
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   background: transparent;
   border: 1px solid #444;
   color: var(--paper3);
@@ -1423,7 +1423,7 @@ footer {
   color: var(--warm2);
   background: transparent;
   border: 1px solid #3a3a36;
-  padding: 8px 12px;
+  padding: 13px 12px;
   cursor: pointer;
   transition: all 0.2s;
 }
