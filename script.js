@@ -87,19 +87,25 @@ function getTotalSlides() {
   return REAL_FRAME_COUNT;
 }
 
-function initInfiniteFrames() {
-  const track = document.getElementById('framesTrack');
+function cloneAroundTrack(track, itemSelector) {
   if (!track) return;
-  const originals = Array.from(track.querySelectorAll('.film-frame'));
-  REAL_FRAME_COUNT = originals.length;
-  if (REAL_FRAME_COUNT === 0) return;
-
+  const originals = Array.from(track.querySelectorAll(itemSelector));
   const before = document.createDocumentFragment();
   const after = document.createDocumentFragment();
   originals.forEach(f => before.appendChild(f.cloneNode(true)));
   originals.forEach(f => after.appendChild(f.cloneNode(true)));
   track.insertBefore(before, track.firstChild);
   track.appendChild(after);
+}
+
+function initInfiniteFrames() {
+  const track = document.getElementById('framesTrack');
+  if (!track) return;
+  REAL_FRAME_COUNT = track.querySelectorAll('.film-frame').length;
+  if (REAL_FRAME_COUNT === 0) return;
+
+  cloneAroundTrack(track, '.film-frame');
+  cloneAroundTrack(document.getElementById('captionsTrack'), '.frame-caption');
 
   currentFrame = REAL_FRAME_COUNT; // start on the first real photo, middle block
 }
@@ -124,9 +130,12 @@ function offsetForFrame(frameIndex) {
 
 function updateCarousel() {
   const track = document.getElementById('framesTrack');
+  const captionsTrack = document.getElementById('captionsTrack');
   if (!track || REAL_FRAME_COUNT === 0) return;
 
-  track.style.transform = `translateX(${offsetForFrame(currentFrame)}px)`;
+  const offset = offsetForFrame(currentFrame);
+  track.style.transform = `translateX(${offset}px)`;
+  if (captionsTrack) captionsTrack.style.transform = `translateX(${offset}px)`;
 
   const fpv = getFramesPerView();
   const idx = realIndex();
@@ -159,6 +168,7 @@ function goToFrame(realIdx) {
 // since the clone renders identically to the real block underneath it.
 function normalizeAfterTransition() {
   const track = document.getElementById('framesTrack');
+  const captionsTrack = document.getElementById('captionsTrack');
   if (!track) return;
   if (currentFrame >= REAL_FRAME_COUNT * 2) {
     currentFrame -= REAL_FRAME_COUNT;
@@ -167,10 +177,16 @@ function normalizeAfterTransition() {
   } else {
     return;
   }
+  const offset = offsetForFrame(currentFrame);
   track.style.transition = 'none';
-  track.style.transform = `translateX(${offsetForFrame(currentFrame)}px)`;
+  track.style.transform = `translateX(${offset}px)`;
+  if (captionsTrack) {
+    captionsTrack.style.transition = 'none';
+    captionsTrack.style.transform = `translateX(${offset}px)`;
+  }
   void track.offsetHeight; // force reflow so transition:none takes effect before we restore it
   track.style.transition = '';
+  if (captionsTrack) captionsTrack.style.transition = '';
 }
 
 function stripNext() {
@@ -217,6 +233,7 @@ document.addEventListener('keydown', function(e) {
 (function() {
   const viewport = document.querySelector('.frames-viewport');
   const track = document.getElementById('framesTrack');
+  const captionsTrack = document.getElementById('captionsTrack');
   if (!viewport || !track) return;
 
   const SWIPE_THRESHOLD = 40; // px of horizontal travel to trigger a slide change
@@ -243,6 +260,7 @@ document.addEventListener('keydown', function(e) {
     isHorizontal = null;
     clearInterval(autoPlay);
     track.style.transition = 'none';
+    if (captionsTrack) captionsTrack.style.transition = 'none';
     viewport.classList.add('dragging');
   }
 
@@ -264,7 +282,9 @@ document.addEventListener('keydown', function(e) {
     const maxDrag = Math.max(0, REAL_FRAME_COUNT - 1) * (frameWidth + gap);
     const clampedDeltaX = Math.max(-maxDrag, Math.min(maxDrag, deltaX));
 
-    track.style.transform = `translateX(${offsetForFrame(currentFrame) + clampedDeltaX}px)`;
+    const dragOffset = offsetForFrame(currentFrame) + clampedDeltaX;
+    track.style.transform = `translateX(${dragOffset}px)`;
+    if (captionsTrack) captionsTrack.style.transform = `translateX(${dragOffset}px)`;
     return true;
   }
 
@@ -273,6 +293,7 @@ document.addEventListener('keydown', function(e) {
     dragging = false;
     viewport.classList.remove('dragging');
     track.style.transition = '';
+    if (captionsTrack) captionsTrack.style.transition = '';
 
     if (isHorizontal && deltaX <= -SWIPE_THRESHOLD) {
       stripNext();

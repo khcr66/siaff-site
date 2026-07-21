@@ -553,10 +553,27 @@ nav {
   padding: 0 16px;
 }
 
+/* Captions container -- separate scrolling row below the sprocket
+   band, kept in sync with .frames-track's transform by script.js so
+   each caption always lines up with its matching photo. */
+.captions-viewport {
+  overflow: hidden;
+  background: #0d0d0d;
+}
+
+.captions-track {
+  display: flex;
+  gap: 0;
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  user-select: none;
+}
+
 .frame-caption {
+  flex-shrink: 0;
+  width: calc(33.333% - 2px);
+  margin: 0 1px;
   padding: 10px 14px;
   background: #0d0d0d;
-  border-top: 1px solid #222;
 }
 
 .frame-caption-text {
@@ -1261,6 +1278,7 @@ footer {
   .footer-inner { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
   .film-frame { width: calc(50% - 2px); }
+  .frame-caption { width: calc(50% - 2px); }
   .section { padding: 48px 20px; }
   .about-hero { padding: 48px 20px 40px; }
   .submit-hero { padding: 48px 20px; }
