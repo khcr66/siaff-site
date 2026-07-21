@@ -1232,6 +1232,7 @@ footer {
 }
 
 .footer-links a:hover { color: var(--paper3); }
+.footer-links a.active { color: var(--red3); }
 
 .footer-address {
   font-size: 15px;
