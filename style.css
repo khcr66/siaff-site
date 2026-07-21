@@ -54,7 +54,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 3px solid var(--red); min-height: 64px;
+  border-bottom: 3px solid var(--red); min-height: 74px;
 }
 
 .nav-brand {
@@ -72,7 +72,7 @@ nav {
 }
 
 .nav-logo img {
-  height: 44px;
+  height: 54px;
   width: auto;
   display: block;
 }
@@ -143,7 +143,7 @@ nav {
 
 .nav-links a {
   display: block;
-  padding: 20px 20px;
+  padding: 25px 20px;
   font-family: var(--mono);
   font-size: 14px;
   letter-spacing: 0.1em;
