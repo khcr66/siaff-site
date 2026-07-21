@@ -631,6 +631,8 @@ nav {
 
 .text-link:hover { color: var(--red2); }
 
+.notice .text-link { display: inline-block; margin-top: 10px; }
+
 .about-strip-right {
   border-left: 1px solid var(--rule);
   padding-left: 48px;
