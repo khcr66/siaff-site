@@ -257,6 +257,13 @@ nav {
 .hero-cta:hover { background: var(--red2); }
 .hero-cta-arrow { font-size: 18px; }
 
+.section-cta { margin-top: 24px; }
+.section-cta p {
+  font-size: 18px;
+  color: var(--ink2);
+  margin-bottom: 16px;
+}
+
 .hero-aside {
   border-left: 1px solid #333;
   padding-left: 40px;
