@@ -12,6 +12,7 @@
   --red2:     #C46A00;
   --red3:     #8F4A00;
   --footer-text: #9C9284;
+  --muted-text: #6E5E4B;
   --warm:     #8C7355;
   --warm2:    #F0A030;
   --rule:     #C4B89A;
@@ -293,7 +294,7 @@ nav {
   font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink3);
+  color: var(--footer-text);
 }
 
 .hero-divider {
@@ -581,7 +582,7 @@ nav {
 .counter-text {
   font-family: var(--mono);
   font-size: 12px;
-  color: #444;
+  color: var(--footer-text);
   letter-spacing: 0.1em;
   margin-left: auto;
 }
@@ -667,7 +668,7 @@ nav {
   font-family: var(--mono);
   font-size: 14px;
   font-weight: 600;
-  color: var(--warm);
+  color: var(--muted-text);
   padding-top: 3px;
   border-right: 2px solid var(--rule);
   padding-right: 12px;
@@ -726,7 +727,7 @@ nav {
   font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink3);
+  color: var(--footer-text);
   line-height: 1.5;
 }
 
@@ -1065,7 +1066,7 @@ nav {
 
 .submit-box-sub {
   font-size: 15px;
-  color: #666;
+  color: var(--footer-text);
   margin-bottom: 24px;
   font-family: var(--mono);
   letter-spacing: 0.05em;
@@ -1120,7 +1121,7 @@ nav {
 
 .submit-note {
   font-size: 14px;
-  color: #555;
+  color: var(--footer-text);
   text-align: center;
   line-height: 1.5;
   font-family: var(--mono);
@@ -1368,7 +1369,7 @@ footer {
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #777;
+  color: var(--footer-text);
   border: 1px solid #3a3a36;
   padding: 3px 8px;
 }
@@ -1488,7 +1489,7 @@ footer {
   font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink3);
+  color: var(--muted-text);
   margin-bottom: 8px;
 }
 .form-input {
@@ -1520,7 +1521,7 @@ footer {
 .form-submit:hover { background: var(--red2); }
 .form-note {
   font-size: 14px;
-  color: var(--ink3);
+  color: var(--muted-text);
   margin-top: 12px;
   font-family: var(--mono);
   letter-spacing: 0.03em;
