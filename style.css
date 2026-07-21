@@ -822,6 +822,7 @@ nav {
   color: var(--ink);
   line-height: 1.25;
   margin-bottom: 16px;
+  scroll-margin-top: 90px;
   margin-top: 48px;
 }
 
@@ -994,6 +995,7 @@ nav {
   color: var(--ink);
   margin-bottom: 16px;
   margin-top: 48px;
+  scroll-margin-top: 90px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--rule);
 }
@@ -1089,6 +1091,11 @@ nav {
   margin-bottom: 16px;
   position: sticky;
   top: 80px;
+}
+
+.anchor-marker {
+  display: block;
+  scroll-margin-top: 90px;
 }
 
 .submit-box-title {
@@ -1352,6 +1359,12 @@ footer {
   padding: 0 2px 20px;
   max-width: 640px;
 }
+.faq-answer a {
+  color: var(--red3);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.faq-answer a:hover { color: var(--red2); }
 
 /* ── FAQ — AI CHAT WIDGET ───────────────────────── */
 .chat-section {

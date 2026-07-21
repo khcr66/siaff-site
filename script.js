@@ -28,11 +28,15 @@ document.addEventListener('click', function(e) {
 
 /* Re-run the anchor-jump after full load (including web fonts), since
    Google Fonts load async and the browser's native fragment scroll can
-   land early, before headings reflow to their real size. */
+   land early, before headings reflow to their real size. A second,
+   slightly delayed correction catches font swaps that finish just after
+   the load event fires. */
 window.addEventListener('load', function() {
   if (!location.hash) return;
   const target = document.querySelector(location.hash);
-  if (target) target.scrollIntoView();
+  if (!target) return;
+  target.scrollIntoView();
+  setTimeout(function() { target.scrollIntoView(); }, 200);
 });
 
 document.addEventListener('keydown', function(e) {
