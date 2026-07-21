@@ -244,7 +244,7 @@ nav {
   align-items: center;
   gap: 10px;
   background: var(--red);
-  color: var(--paper);
+  color: var(--ink);
   padding: 14px 28px;
   font-family: var(--mono);
   font-size: 14px;
@@ -409,7 +409,7 @@ nav {
 .filmstrip-btn:hover {
   background: var(--red);
   border-color: var(--red);
-  color: var(--paper);
+  color: var(--ink);
 }
 
 /* The film strip track */
@@ -877,14 +877,14 @@ nav {
   font-family: var(--serif);
   font-size: clamp(32px, 4vw, 56px);
   font-weight: 900;
-  color: var(--paper);
+  color: var(--ink);
   line-height: 1.1;
   margin-bottom: 12px;
 }
 
 .submit-hero-sub {
   font-size: 19px;
-  color: rgba(242, 235, 217, 0.8);
+  color: rgba(28, 28, 26, 0.85);
   max-width: 560px;
   line-height: 1.7;
 }
@@ -1102,7 +1102,7 @@ nav {
   display: block;
   width: 100%;
   background: var(--red);
-  color: var(--paper);
+  color: var(--ink);
   padding: 16px 24px;
   font-family: var(--mono);
   font-size: 15px;
@@ -1395,7 +1395,7 @@ footer {
 }
 .chat-msg.user .chat-msg-bubble {
   background: var(--red);
-  color: var(--paper);
+  color: var(--ink);
 }
 .chat-suggestions {
   display: flex;
@@ -1414,7 +1414,7 @@ footer {
   cursor: pointer;
   transition: all 0.2s;
 }
-.chip:hover { background: var(--red); border-color: var(--red); color: var(--paper); }
+.chip:hover { background: var(--red); border-color: var(--red); color: var(--ink); }
 .chat-input-row { display: flex; border-top: 1px solid #2a2a28; }
 .chat-input {
   flex: 1;
@@ -1430,7 +1430,7 @@ footer {
 .chat-input:focus { outline: none; background: #131311; }
 .chat-send {
   background: var(--red);
-  color: var(--paper);
+  color: var(--ink);
   border: none;
   padding: 0 24px;
   font-family: var(--mono);
@@ -1507,7 +1507,7 @@ footer {
   align-items: center;
   gap: 8px;
   background: var(--red);
-  color: var(--paper);
+  color: var(--ink);
   border: none;
   padding: 14px 28px;
   font-family: var(--mono);
