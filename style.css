@@ -941,11 +941,11 @@ nav {
   font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 13px 20px;
   text-decoration: none;
   cursor: pointer;
-  border-bottom: 1px solid var(--ink);
-  padding-bottom: 1px;
   transition: opacity 0.2s;
 }
 
