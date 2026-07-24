@@ -1273,6 +1273,17 @@ footer {
   font-style: normal;
 }
 
+.footer-address a {
+  color: var(--footer-text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-address a:hover { color: var(--paper3); }
+.footer-address a:focus-visible {
+  outline: 2px solid var(--red3);
+  outline-offset: 2px;
+}
+
 .footer-bottom {
   max-width: 1100px;
   margin: 36px auto 0;
